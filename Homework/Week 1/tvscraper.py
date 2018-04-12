@@ -28,47 +28,100 @@ def extract_tvseries(dom):
     - Runtime (only a number!)
     """
 
+    # search all content within lister-item-content
     series_info = dom.find_all("div", class_="lister-item-content")
+
+    # create empty list
     infolist = []
+
+    # loop over each serie individually
     for info in series_info:
+
+        # create empty list for appending
+        series = []
         titles = info.h3.a.text
-        infolist.append(titles)
 
+        # create failsafe if no title exists
+        if not titles:
+            titles = "-"
+        else:
+            titles
+
+        # append title to list
+        series.append(titles)
+
+        # search rating in html
         rating = info.find("div", {"data-value":True})
-        infolist.append(rating["data-value"])
 
+        # create failsafe if no rating exists
+        if not rating:
+            rating = "-"
+        else:
+            rating
+
+        # append rating to list
+        series.append(rating["data-value"])
+
+        # search genre in html
         genre = info.find("span", class_="genre")
-        genre = genre.text.replace("\n", "")
-        genre = genre.rstrip(" ")
-        infolist.append(genre)
 
+        # create failsafe if no genre exists
+        if not genre:
+            genre = "-"
+        else:
+            genre = genre.text.strip()
+
+        # append genre to list
+        series.append(genre)
+
+        # search actors in html
         series_actors = info.find_all(class_="", href=re.compile("name"))
-        for actors in series_actors:
-            actors = actors.text
-            infolist.append(actors)
 
-        # extracting runtime of series on first page
+        # create failsafe if no actor exists
+        if not series_actors:
+            series_actors = "-"
+        else:
+            temp_actor = []
+
+            # loop over all actors in html
+            for actors in series_actors:
+                actors = actors.text
+                temp_actor.append(actors)
+                joined_actors = ", ".join(temp_actor)
+
+        # append actors to list
+        series.append(joined_actors)
+
+        # search runtime of series in html
         runtime = info.find("span", class_="runtime")
-        runtime = runtime.text.split(" ", maxsplit=1)[0]
-        infolist.append(runtime)
-    print(infolist)
 
+        # create failsafe if no runtime exists
+        if not runtime:
+            runtime = "unknown"
+        else:
+            runtime = runtime.text.split(" ")[0]
 
+        # append runtime to list
+        series.append(runtime)
+
+        # append list containing title, rating, genre, actors and runtime to list
+        infolist.append(series)
+
+    return infolist
 
 
 def save_csv(outfile, tvseries):
     """
     Output a CSV file containing highest rated TV-series.
     """
+
+    # write header in outfile
     writer = csv.writer(outfile)
     writer.writerow(['Title', 'Rating', 'Genre', 'Actors', 'Runtime'])
 
-    for i in tvseries:
-        row = 
-        writer.writerow(row)
-
-
-    # ADD SOME CODE OF YOURSELF HERE TO WRITE THE TV-SERIES TO DISK
+    # write each row with all information of a serie
+    for serie in tvseries:
+        writer.writerow(serie)
 
 
 def simple_get(url):

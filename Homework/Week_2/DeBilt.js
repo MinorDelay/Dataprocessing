@@ -146,6 +146,8 @@ var examineY = createTransform([minTemp, minTemp + (yEnd - yBeg)], [yEnd, yBeg])
 // create x-coordinate
 var examineX = createTransform([newDate[0], newDate[data.length - 1]], [xBeg, xEnd]);
 
+console.log(newDate[0])
+
 // create list for y-coordinate
 let y1 = [];
 

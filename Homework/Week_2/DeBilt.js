@@ -4,6 +4,7 @@
  * Implementing a javascript that plots a line graph.
  */
 
+// XMLHttp lukte niet, wel geprobeerd daarom verder gegaan met data in html
 // var weer = "weerdebilt2010.txt";
 //
 // var weerFile = new XMLHttpRequest();

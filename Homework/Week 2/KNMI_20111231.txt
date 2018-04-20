@@ -8,8 +8,6 @@
 # YYYYMMDD = Datum (YYYY=jaar MM=maand DD=dag); 
 # TG       = Etmaalgemiddelde temperatuur (in 0.1 graden Celsius); 
 # 
-#YYYYMMDD,   TG
-# 
   20100101,  -16
   20100102,  -11
   20100103,  -39

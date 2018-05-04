@@ -30,8 +30,6 @@ function loadingPage() {
   // use response
   totMobileSource = JSON.parse(response[0].responseText)
   totHumanEmission = JSON.parse(response[1].responseText)
-  console.log(totMobileSource)
-
 
   // extract countries and years from data
   var countries = totMobileSource.structure.dimensions.observation[0].values

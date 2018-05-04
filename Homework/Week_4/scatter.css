@@ -1,0 +1,11 @@
+/*
+Name: Simon Kemmere
+Student number: 10798250
+Course: Dataprocessing
+Assignment: week 4, draw a scatterplot using d3 and if needed/wanted other libraries
+*/
+
+.axis path,
+.axis line {
+      fill: none;
+      stroke: black}

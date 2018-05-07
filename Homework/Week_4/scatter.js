@@ -110,7 +110,7 @@ function loadingPage() {
                 .attr("class", "title")
                 .text(function(d,i){
                   if (selected == showYear[i]["name"]){
-                    title = "The relation between the total mobile emission and total human emission in " + showYear[i]["name"]
+                    title = "The relation between the total mobile emission and total human emission in " + showYear[i]["name"] + "or 2012"
                   }
                     return title
                 });

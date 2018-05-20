@@ -1,0 +1,101 @@
+/*
+Name: Simon Kemmere
+Student number: 10798250
+Course: Dataprocessing
+Assignment: week 5, draw a linked graphs using d3 and if needed/wanted other libraries
+*/
+
+/* background image for top */
+#top {
+  background-image: url(oxfordUniversity.jpg);
+  background-blend-mode: overlay;
+  color: black;
+
+}
+
+body {
+  background-color: #fff2e6;
+}
+
+/* make axes pretty */
+.axis path,
+.axis line {
+      fill: none;
+      stroke: black;
+    }
+
+/* style map */
+#map {
+  float: left;
+  margin-left: auto;
+  margin-right: 20px;
+  padding: 20px;
+  background-color: white;
+}
+
+/* style tooltip of barchart*/
+.bar-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* creates a small triangle extender for the tooltip */
+.bar-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* style northward tooltips differently */
+.bar-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+/* style tooltip of map */
+.map-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* creates a small triangle extender for the tooltip */
+.map-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* style northward tooltips differently */
+.map-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+/* create borders between countries */
+.countries {
+  fill: #cccccc;
+  stroke: #333333;
+  stroke-width: 0.5;
+}

@@ -1,0 +1,129 @@
+<!-- Name: Simon Kemmere
+Student number: 10798250
+Course: Dataprocessing
+Assignment: week 5, draw a linked graphs using d3 and if needed/wanted other libraries -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <title>Worldmap meets barchart</title>
+        <link rel="stylesheet" type="text/css" href="educationWage.css">
+        <script src="https://d3js.org/topojson.v1.min.js"></script>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script type="text/javascript" src="d3-tip.js"></script>
+        <script type="text/javascript" src="educationWage.js"></script>
+
+    </head>
+    <body>
+      <div class="jumbotron text-center" id="top">
+        <h1>Interactive map of Europe</h1>
+          <p style="font-size: 30px">By Simon Kemmere, 10798250</p>
+          <p style="font-size: 20px"> Data extracted from the following sources: <a href="https://data.oecd.org/eduatt/adult-education-level.htm#indicator-chart">Adult Education level</a>
+            and <a href=" https://data.oecd.org/earnwage/average-wages.htm#indicator-chart">Average wage</a></h1>
+          </p>
+      </div>
+      <div class="container" id="story">
+        <br>
+        <br>
+        <h2 class="title">Storytelling</h2>
+        <p>This interactive map of Europe shows the average wage per colored country.
+          The lighter green a country is, the higher the average wage in that country.
+          A barchart will appear when clicking on a country, showing the percentage
+          of 25-64 year-olds that finished a tertiary study. There is a lot of talk
+          about the distribution in which women and men partake in doing tertiary studies.
+          There used to be a lot more men partaking in studies at a university level.
+          To show whether this is still the case the percentage of 25-64 year olds
+          that finished a tertiary study is set out per gender.
+          <br>
+          Intuitively there is a connection between these variables, because the wage earned
+          having finished a study at a university level is by average higher than the wage earned
+          not having finished such a study at that level.
+          Yet, is that really the case? Find out by exploring the map of Europe and
+          selecting the countries, from which you'd like to see the abovementioned data.
+       </p>
+     </div>
+     <div class="container" id="Variables explained">
+       <div class="row">
+         <div class="col-sm-6">
+           <h2 class="bullets">Average wage</h2>
+           <p>
+             "Average wages are obtained by dividing the national-accounts-based
+             total wage bill by the average number of employees in the total economy,
+             which is then multiplied by the ratio of the average usual weekly hours
+             per full-time employee to the average usually weekly hours for all employees.
+             This indicator is measured in USD constant prices using 2016 base year and
+             Purchasing Power Parities (PPPs) for private consumption of the same year."
+             (OECD, 2018)
+          </p>
+        </div>
+        <div class="col-sm-6">
+          <h2 class="bullets">Adult education level</h2>
+          <p>"This indicator looks at adult education level as defined by the
+            highest level of education completed by the 25-64 year-old population.
+            The indicator is measured as a percentage of same age population;
+            for tertiary education level, data are broken down by gender."
+            (OECD, 2018)
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container" id="visualisations">
+      <h2 class="title">Visualisations</h2>
+      <div class="row">
+        <div class="col-sm-6">
+          <div id = "map"></div>
+        </div>
+        <div class="col-sm-6">
+          <div id = "bar"></div>
+        </div>
+
+        <div id = "legend"></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="container" id="design">
+      <h2 class="title">Design choices</h2>
+      <div class="row">
+        <div class="col-sm-4">
+          <h4 class="subtitle">Website</h4>
+          <p>
+            I've tried to make the website as accessible as possible.
+            Meaning that I've tried to create a site that's easy on the eye,
+            also making sure that it's layout and information is instantly clear.
+            Personally I like sites that are simple, as they are clear in what they
+            want to present, meaning that the user doesn't need to look everywhere
+            before finding the information he or she wants.
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <h4 class="subtitle">Map of Europe</h4>
+          <p>
+            Via the distinction in green colors on the map of Europe,
+            I've tried to allow some insight in the way the average wage
+            in Europe per country is distributed. The green colors are
+            relative to the height of the average wage. Each color should
+            thus represent the of the average wage relatively to it's
+            neighboring countries, thus creating a quick insight of
+            how the average wage is distributed throughout Europe.
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <h4 class="subtitle">Bar Chart</h4>
+          <p>
+            I've chosen to present the data in a barchart. This was due to the
+            fact that I wanted to show the way the tertiary education
+            level was distributed per gender. In the beginning I considered
+            using a piechart, but fractions that lie close to each other are hard
+            to distinct in a piechart. That's why I've chosen to use a barchart.
+            The bars are given the same color because they present the same variable.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
